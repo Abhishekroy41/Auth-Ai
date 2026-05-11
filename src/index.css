@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #0A0D1A;
+    --bg-secondary: #0F1428;
+    --bg-card: rgba(255,255,255,0.04);
+    --border-card: rgba(0,230,118,0.15);
+    
+    --accent-green: #00E676;
+    --accent-wa: #25D366;
+    --accent-blue: #00B4FF;
+    --accent-purple: #7C3AED;
+    
+    --text-primary: #F0F4FF;
+    --text-secondary: #8892B0;
+    --text-muted: #4A5568;
+
+    --font-syne: "Syne", sans-serif;
+    --font-mono: "DM Mono", monospace;
+    --font-nunito: "Nunito", sans-serif;
+
+    --glow-green: 0 0 30px rgba(0, 230, 118, 0.3);
+    --glow-blue: 0 0 30px rgba(0, 180, 255, 0.2);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-nunito);
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-syne);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-card);
+    border-radius: 1.5rem;
+  }
+
+  .hover-glow-green {
+    transition: all 0.3s ease;
+  }
+
+  .hover-glow-green:hover {
+    box-shadow: var(--glow-green);
+    border-color: rgba(0, 230, 118, 0.4);
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-green {
+    background: linear-gradient(to right, var(--accent-green), var(--accent-wa));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
