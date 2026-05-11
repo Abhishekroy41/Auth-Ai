@@ -46,17 +46,31 @@ export default function Testimonials() {
           {testimonials.map((testi, idx) => (
             <motion.div 
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="glass-card p-8 rounded-3xl relative"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ delay: idx * 0.15, duration: 0.6, ease: "easeOut" }}
+              whileHover={{ 
+                y: -15, 
+                scale: 1.02,
+                boxShadow: "0 20px 40px rgba(0, 230, 118, 0.15)",
+                borderColor: "rgba(0, 230, 118, 0.3)"
+              }}
+              className="glass-card p-8 rounded-3xl relative transition-colors duration-300"
             >
               <Quote className="absolute top-6 right-6 text-white/5" size={60} />
               
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-[var(--accent-green)] text-xl">★</span>
+                  <motion.span 
+                    key={i} 
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: idx * 0.15 + i * 0.1 }}
+                    className="text-[var(--accent-green)] text-xl"
+                  >
+                    ★
+                  </motion.span>
                 ))}
               </div>
               

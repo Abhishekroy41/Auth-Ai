@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
@@ -17,13 +18,52 @@ import FAQ from './components/sections/FAQ';
 import Contact from './components/sections/Contact';
 
 function App() {
+  const cursorX = useMotionValue(-500);
+  const cursorY = useMotionValue(-500);
+  
+  const springConfig = { damping: 30, stiffness: 50 };
+  const cursorXSpring = useSpring(cursorX, springConfig);
+  const cursorYSpring = useSpring(cursorY, springConfig);
+
+  useEffect(() => {
+    const moveCursor = (e) => {
+      cursorX.set(e.clientX - 250); // Center the 500px orb
+      cursorY.set(e.clientY - 250);
+    };
+    window.addEventListener('mousemove', moveCursor);
+    return () => window.removeEventListener('mousemove', moveCursor);
+  }, []);
+
   return (
     <div className="min-h-screen relative overflow-hidden bg-[var(--bg-primary)]">
-      {/* Background glowing effects */}
-      <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-[var(--accent-green)] opacity-[0.03] blur-[120px] pointer-events-none"></div>
-      <div className="fixed bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[var(--accent-blue)] opacity-[0.03] blur-[120px] pointer-events-none"></div>
+      {/* Interactive Mouse Glow */}
+      <motion.div 
+        className="fixed top-0 left-0 w-[500px] h-[500px] rounded-full bg-[var(--accent-green)] opacity-[0.05] blur-[120px] pointer-events-none z-0 mix-blend-screen"
+        style={{ x: cursorXSpring, y: cursorYSpring }}
+      />
       
-      <Navbar />
+      {/* Ambient slow drifting orbs */}
+      <motion.div 
+        animate={{ 
+          x: [0, 50, -50, 0], 
+          y: [0, -50, 50, 0],
+          scale: [1, 1.1, 0.9, 1] 
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        className="fixed top-[-10%] left-[-10%] w-[40%] h-[50%] rounded-full bg-[var(--accent-blue)] opacity-[0.03] blur-[120px] pointer-events-none z-0"
+      />
+      <motion.div 
+        animate={{ 
+          x: [0, -80, 80, 0], 
+          y: [0, 80, -80, 0],
+          scale: [1, 0.8, 1.2, 1] 
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        className="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[var(--accent-green)] opacity-[0.02] blur-[150px] pointer-events-none z-0"
+      />
+      
+      <div className="relative z-10">
+        <Navbar />
       
       <main>
         <Hero />
@@ -44,6 +84,8 @@ function App() {
 
       <Footer />
       
+      </div>
+
       {/* Floating WhatsApp Button */}
       <a 
         href="https://wa.me/919999999999" 

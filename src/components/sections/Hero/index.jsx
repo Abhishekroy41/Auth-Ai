@@ -29,24 +29,45 @@ export default function Hero() {
           
           {/* Left Column: Text Content */}
           <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+            }}
           >
-            <h1 className="text-5xl lg:text-7xl font-bold font-syne leading-[1.1] mb-6">
+            <motion.h1 
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+              }}
+              className="text-5xl lg:text-7xl font-bold font-syne leading-[1.1] mb-6"
+            >
               Your Business <br className="hidden md:block" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-primary)] to-[var(--text-secondary)]">Never Sleeps.</span>
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent-green)] to-[var(--accent-wa)]">Neither Does Our AI.</span>
-            </h1>
+            </motion.h1>
             
-            <p className="text-xl text-[var(--text-secondary)] font-nunito mb-10 max-w-xl leading-relaxed">
+            <motion.p 
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+              }}
+              className="text-xl text-[var(--text-secondary)] font-nunito mb-10 max-w-xl leading-relaxed"
+            >
               WhatsApp AI Bots. Instagram Automation. WhatsApp CRM. <br className="hidden sm:block" />
               Done for you — not by you. Built for Indian businesses. <br />
               <strong className="text-[var(--text-primary)] font-semibold">Zero Meta markup.</strong>
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <motion.div 
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+              }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <a 
                 href="#contact"
                 className="inline-flex justify-center items-center px-8 py-4 rounded-full bg-[var(--accent-green)] text-black font-bold font-nunito text-lg hover-glow-green hover:scale-105 transition-all"
@@ -59,14 +80,22 @@ export default function Hero() {
               >
                 See Pricing
               </a>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Right Column: Chat Mockup */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.95, y: 0 }}
+            animate={{ 
+              opacity: 1, 
+              scale: 1, 
+              y: [-10, 10, -10] 
+            }}
+            transition={{ 
+              opacity: { duration: 0.8, delay: 0.2 },
+              scale: { duration: 0.8, delay: 0.2 },
+              y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+            }}
             className="relative"
           >
             <div className="glass-card p-4 sm:p-6 rounded-3xl border-[var(--border-card)] relative overflow-hidden">
