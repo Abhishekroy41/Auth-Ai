@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown, MessageCircle, Zap, Shield, HelpCircle, Phone, PlayCircle, BookOpen, Layers } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,41 +17,114 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  const navLinks = [
+    {
+      name: 'Products',
+      dropdown: [
+        { title: 'WhatsApp Marketing', desc: 'Broadcast, Automate & Grow', icon: <MessageCircle size={18} /> },
+        { title: 'WhatsApp Chatbots', desc: 'Automate your messaging with AI', icon: <Zap size={18} /> },
+        { title: 'WhatsApp Payments', desc: 'Collect Payments within WhatsApp', icon: <Shield size={18} /> },
+        { title: 'WhatsApp Forms', desc: 'Native Forms within WhatsApp', icon: <Layers size={18} /> },
+      ]
+    },
+    {
+      name: 'Industries',
+      dropdown: [
+        { title: 'Education', desc: 'Edtech, Coaches, Institutes', icon: <BookOpen size={18} /> },
+        { title: 'E-commerce', desc: 'Brands & D2C', icon: <PlayCircle size={18} /> },
+        { title: 'Healthcare', desc: 'Appointment Booking, Hospitals', icon: <Shield size={18} /> },
+        { title: 'Real Estate', desc: 'Developers, Brokers', icon: <Layers size={18} /> },
+      ]
+    },
+    {
+      name: 'Resources',
+      dropdown: [
+        { title: 'Help Center', desc: "FAQ's, How-to's & more", icon: <HelpCircle size={18} /> },
+        { title: 'Tutorials', desc: 'Learn how to use the platform', icon: <PlayCircle size={18} /> },
+        { title: 'Contact Support', desc: 'Get in touch with us', icon: <Phone size={18} /> },
+      ]
+    }
+  ];
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
       isScrolled ? 'bg-[var(--bg-secondary)]/80 backdrop-blur-md border-b border-[var(--border-card)] py-4' : 'bg-transparent py-6'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="w-3 h-3 rounded-full bg-[var(--accent-green)] shadow-[var(--glow-green)] animate-pulse"></div>
-            <a href="#" className="font-syne text-2xl font-bold tracking-wide text-white">
-              Auth AI
-            </a>
-          </div>
+          <Link to="/" className="flex items-center gap-2 relative z-10 group">
+            <span className="font-syne text-[32px] font-extrabold tracking-tight text-white group-hover:text-gray-200 transition-colors" style={{ letterSpacing: '-0.05em' }}>
+              {'{Auth Ai}'}
+            </span>
+          </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            <div className="flex items-center gap-6 font-nunito text-[var(--text-secondary)]">
-              <a href="#products" className="hover:text-white transition-colors">Products</a>
-              <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
-              <a href="#why-us" className="hover:text-white transition-colors">Why Auth AI</a>
-              <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+          <div className="hidden lg:flex items-center gap-8">
+            <div className="flex items-center gap-8 font-nunito text-[var(--text-secondary)] font-medium">
+              
+              {navLinks.map((link, idx) => (
+                <div 
+                  key={idx}
+                  className="relative group py-2"
+                  onMouseEnter={() => setActiveDropdown(idx)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                >
+                  <button className="flex items-center gap-1 hover:text-white transition-colors">
+                    {link.name} <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === idx ? 'rotate-180 text-[var(--accent-green)]' : ''}`} />
+                  </button>
+                  
+                  <AnimatePresence>
+                    {activeDropdown === idx && (
+                      <motion.div 
+                        initial={{ opacity: 0, y: 15, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 15, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[450px] glass-card border border-white/10 rounded-2xl p-4 grid grid-cols-2 gap-2 shadow-2xl before:absolute before:-top-2 before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-b-white/10"
+                      >
+                        {link.dropdown.map((item, i) => (
+                          <a href="#" key={i} className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                            <div className="mt-0.5 text-[var(--text-secondary)] group-hover/item:text-[var(--accent-green)] transition-colors">
+                              {item.icon}
+                            </div>
+                            <div>
+                              <div className="text-white font-syne font-bold text-sm mb-1 group-hover/item:text-[var(--accent-green)] transition-colors">{item.title}</div>
+                              <div className="text-[var(--text-secondary)] text-xs leading-snug">{item.desc}</div>
+                            </div>
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+
+              <Link to="/pricing" className={`hover:text-white transition-colors ${location.pathname === '/pricing' ? 'text-white font-bold' : ''}`}>
+                Pricing
+              </Link>
             </div>
             
-            <a 
-              href="#contact" 
-              className="bg-[var(--accent-green)] text-black font-semibold px-6 py-2.5 rounded-full hover:shadow-[var(--glow-green)] transition-all duration-300 hover:scale-105"
-            >
-              Get a Free Demo
-            </a>
+            <div className="flex items-center gap-4">
+              <a href="#" className="text-white font-bold font-nunito hover:text-[var(--accent-green)] transition-colors">Login</a>
+              <a 
+                href="#" 
+                className="bg-white text-black font-bold font-nunito px-6 py-2.5 rounded-full hover:bg-[var(--accent-green)] hover:shadow-[var(--glow-green)] transition-all duration-300 hover:-translate-y-0.5"
+              >
+                Book a Demo
+              </a>
+            </div>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="md:hidden text-white"
+            className="lg:hidden text-white relative z-10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -56,23 +133,34 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Nav */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-[var(--bg-secondary)] border-b border-[var(--border-card)] backdrop-blur-lg">
-          <div className="px-4 py-6 flex flex-col gap-4 text-center">
-            <a href="#products" className="text-[var(--text-secondary)] hover:text-white text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>Products</a>
-            <a href="#pricing" className="text-[var(--text-secondary)] hover:text-white text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>Pricing</a>
-            <a href="#why-us" className="text-[var(--text-secondary)] hover:text-white text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>Why Auth AI</a>
-            <a href="#contact" className="text-[var(--text-secondary)] hover:text-white text-lg py-2" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
-            <a 
-              href="#contact" 
-              className="mt-4 bg-[var(--accent-green)] text-black font-semibold px-6 py-3 rounded-full hover:shadow-[var(--glow-green)] transition-all mx-auto w-full max-w-xs"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Get a Free Demo
-            </a>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden absolute top-full left-0 right-0 bg-[var(--bg-primary)] border-b border-white/10 overflow-hidden shadow-2xl"
+          >
+            <div className="px-6 py-8 flex flex-col gap-6">
+              <Link to="/" className="text-white font-syne text-xl font-bold border-b border-white/10 pb-4">Home</Link>
+              <Link to="/pricing" className="text-white font-syne text-xl font-bold border-b border-white/10 pb-4">Pricing</Link>
+              <a href="#" className="text-white font-syne text-xl font-bold border-b border-white/10 pb-4">Products</a>
+              <a href="#" className="text-white font-syne text-xl font-bold border-b border-white/10 pb-4">Industries</a>
+              <a href="#" className="text-white font-syne text-xl font-bold border-b border-white/10 pb-4">Resources</a>
+              
+              <div className="mt-4 flex flex-col gap-4">
+                <a href="#" className="text-center text-white font-bold py-3 rounded-full border border-white/20 hover:bg-white/5">Login</a>
+                <a 
+                  href="#" 
+                  className="text-center bg-[var(--accent-green)] text-black font-bold py-3 rounded-full shadow-[var(--glow-green)]"
+                >
+                  Book a Demo
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

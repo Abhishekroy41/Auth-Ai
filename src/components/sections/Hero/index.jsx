@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Hero() {
   const [chatStep, setChatStep] = useState(0);
@@ -23,7 +24,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-transparent">
+      {/* Dynamic dark radial gradient overlaid on Vanta */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--bg-primary)]/50 to-[var(--bg-primary)] pointer-events-none z-0" />
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
@@ -74,12 +78,12 @@ export default function Hero() {
               >
                 Start with a Free Demo
               </a>
-              <a 
-                href="#pricing"
+              <Link 
+                to="/pricing"
                 className="inline-flex justify-center items-center px-8 py-4 rounded-full border border-white/20 text-white font-bold font-nunito text-lg hover:bg-white/5 transition-all"
               >
                 See Pricing
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
 
