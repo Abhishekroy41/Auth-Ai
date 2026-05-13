@@ -90,7 +90,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 15, scale: 0.95 }}
                         transition={{ duration: 0.2 }}
-                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[450px] glass-card border border-white/10 rounded-2xl p-4 grid grid-cols-2 gap-2 shadow-2xl before:absolute before:-top-2 before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-b-white/10"
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[450px] bg-[#0a0a0a]/95 backdrop-blur-3xl border border-white/10 rounded-2xl p-4 grid grid-cols-2 gap-2 shadow-[0_10px_40px_rgba(0,0,0,0.8)] before:absolute before:-top-2 before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-b-white/10"
                       >
                         {link.dropdown.map((item, i) => (
                           <Link to={item.link || "#"} key={i} className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
