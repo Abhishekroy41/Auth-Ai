@@ -6,7 +6,7 @@
   "homepage": "https://Abhishekroy41.github.io/Auth-Ai",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/postbuild.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
