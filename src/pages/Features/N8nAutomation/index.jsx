@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Zap, Database, MessageSquare, Bot, Clock, Building2, Stethoscope, Dumbbell, GraduationCap, CircleDollarSign, Gem } from 'lucide-react';
 
+import n8nWorkflowImg from './Images/finance_tracker_execution.png';
+
 export default function N8nAutomationFeature() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -171,7 +173,7 @@ export default function N8nAutomationFeature() {
             className="order-2 lg:order-1 relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-[400px]"
           >
             <img 
-              src="/assets/images/features/n8n_workflow.png" 
+              src={n8nWorkflowImg} 
               alt="n8n Visual Workflow Automation" 
               className="w-full h-full object-cover"
             />
