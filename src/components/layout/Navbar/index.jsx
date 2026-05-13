@@ -24,12 +24,14 @@ export default function Navbar() {
 
   const navLinks = [
     {
-      name: 'Products',
+      name: 'Features',
       dropdown: [
-        { title: 'WhatsApp Marketing', desc: 'Broadcast, Automate & Grow', icon: <MessageCircle size={18} /> },
-        { title: 'WhatsApp Chatbots', desc: 'Automate your messaging with AI', icon: <Zap size={18} /> },
-        { title: 'WhatsApp Payments', desc: 'Collect Payments within WhatsApp', icon: <Shield size={18} /> },
-        { title: 'WhatsApp Forms', desc: 'Native Forms within WhatsApp', icon: <Layers size={18} /> },
+        { title: 'Enterprise CRM', desc: 'Custom CRM solutions', icon: <Layers size={18} />, link: '/features/crm' },
+        { title: 'n8n Automation', desc: 'Automate complex workflows', icon: <Zap size={18} />, link: '/features/n8n' },
+        { title: 'Landing Pages', desc: 'High-converting websites', icon: <PlayCircle size={18} />, link: '/features/websites' },
+        { title: 'SEO Services', desc: 'Rank higher on search engines', icon: <MessageCircle size={18} />, link: '/features/seo' },
+        { title: 'AI Workflows', desc: 'Intelligent process automation', icon: <Shield size={18} />, link: '/features/ai' },
+        { title: 'Meta & Google Ads', desc: 'Campaign management', icon: <HelpCircle size={18} />, link: '/features/ads' },
       ]
     },
     {
@@ -90,7 +92,7 @@ export default function Navbar() {
                         className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[450px] glass-card border border-white/10 rounded-2xl p-4 grid grid-cols-2 gap-2 shadow-2xl before:absolute before:-top-2 before:left-1/2 before:-translate-x-1/2 before:border-8 before:border-transparent before:border-b-white/10"
                       >
                         {link.dropdown.map((item, i) => (
-                          <a href="#" key={i} className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
+                          <Link to={item.link || "#"} key={i} className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors group/item">
                             <div className="mt-0.5 text-[var(--text-secondary)] group-hover/item:text-[var(--accent-green)] transition-colors">
                               {item.icon}
                             </div>
@@ -98,7 +100,7 @@ export default function Navbar() {
                               <div className="text-white font-syne font-bold text-sm mb-1 group-hover/item:text-[var(--accent-green)] transition-colors">{item.title}</div>
                               <div className="text-[var(--text-secondary)] text-xs leading-snug">{item.desc}</div>
                             </div>
-                          </a>
+                          </Link>
                         ))}
                       </motion.div>
                     )}

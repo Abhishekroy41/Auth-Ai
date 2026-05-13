@@ -5,6 +5,7 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import Pricing from './pages/Pricing';
+import FeaturePage from './pages/FeaturePage';
 import VantaBackground from './components/ui/VantaBackground';
 
 function App() {
@@ -63,6 +64,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/pricing" element={<Pricing />} />
+              <Route path="/features/:id" element={<FeaturePage />} />
               <Route path="*" element={<Home />} />
             </Routes>
           </div>
