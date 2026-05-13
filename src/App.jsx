@@ -5,7 +5,12 @@ import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import Pricing from './pages/Pricing';
-import FeaturePage from './pages/FeaturePage';
+import CRMFeature from './pages/Features/CRM';
+import N8nAutomationFeature from './pages/Features/N8nAutomation';
+import LandingPagesFeature from './pages/Features/LandingPages';
+import SEOFeature from './pages/Features/SEO';
+import AIWorkflowsFeature from './pages/Features/AIWorkflows';
+import AdsFeature from './pages/Features/Ads';
 import VantaBackground from './components/ui/VantaBackground';
 
 function App() {
@@ -64,7 +69,12 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/pricing" element={<Pricing />} />
-              <Route path="/features/:id" element={<FeaturePage />} />
+              <Route path="/features/crm" element={<CRMFeature />} />
+              <Route path="/features/n8n" element={<N8nAutomationFeature />} />
+              <Route path="/features/websites" element={<LandingPagesFeature />} />
+              <Route path="/features/seo" element={<SEOFeature />} />
+              <Route path="/features/ai" element={<AIWorkflowsFeature />} />
+              <Route path="/features/ads" element={<AdsFeature />} />
               <Route path="*" element={<Home />} />
             </Routes>
           </div>
