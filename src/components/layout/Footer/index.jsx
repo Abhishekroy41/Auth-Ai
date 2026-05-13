@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-white pt-24 pb-24 relative z-10 border-t border-gray-200">
+    <footer className="bg-white py-12 lg:py-16 relative z-10 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-12 lg:gap-16">
@@ -15,9 +15,12 @@ export default function Footer() {
                 {'{Auth Ai}'}
               </span>
             </Link>
-            <p className="text-gray-600 font-nunito text-base">
-              © {new Date().getFullYear()} Auth AI Communications Private Limited
-            </p>
+            <div className="flex items-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-md shadow-sm">
+                <svg className="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.8l7.5 13.2H4.5L12 5.8z"/></svg>
+                <span className="text-gray-800 font-syne font-bold tracking-wide uppercase text-sm">Startup India</span>
+              </div>
+            </div>
             
             <p className="text-gray-600 font-nunito text-base flex items-center gap-2">
               Made with <span className="text-pink-500 text-xl">❤️</span> in India
@@ -52,7 +55,7 @@ export default function Footer() {
           {/* Platform Column */}
           <div className="col-span-1">
             <h4 className="text-black font-bold mb-6 font-syne text-lg tracking-wide">Platform</h4>
-            <ul className="space-y-4 font-nunito text-gray-600 text-base">
+            <ul className="space-y-3 font-nunito text-gray-600 text-sm">
               <li><Link to="/" className="hover:text-black transition-colors">Features</Link></li>
               <li><a href="#" className="hover:text-black transition-colors">Industries</a></li>
               <li><Link to="/pricing" className="hover:text-black transition-colors">Pricing</Link></li>
@@ -65,7 +68,7 @@ export default function Footer() {
           {/* Resources Column */}
           <div className="col-span-1">
             <h4 className="text-black font-bold mb-6 font-syne text-lg tracking-wide">Resources</h4>
-            <ul className="space-y-4 font-nunito text-gray-600 text-base">
+            <ul className="space-y-3 font-nunito text-gray-600 text-sm">
               <li><a href="#" className="hover:text-black transition-colors">Help Center</a></li>
               <li><a href="#" className="hover:text-black transition-colors">Blog</a></li>
               <li><a href="#" className="hover:text-black transition-colors">About Auth AI</a></li>
@@ -77,7 +80,7 @@ export default function Footer() {
           {/* FREE Tools Column */}
           <div className="col-span-1">
             <h4 className="text-black font-bold mb-6 font-syne text-lg tracking-wide">FREE Tools</h4>
-            <ul className="space-y-4 font-nunito text-gray-600 text-base">
+            <ul className="space-y-3 font-nunito text-gray-600 text-sm">
               <li><a href="#" className="hover:text-black transition-colors">WhatsApp Button</a></li>
               <li><a href="#" className="hover:text-black transition-colors">Generate WhatsApp Link</a></li>
               <li><a href="#" className="hover:text-black transition-colors">Download Android app</a></li>
@@ -88,7 +91,7 @@ export default function Footer() {
           {/* Legal Column */}
           <div className="col-span-1">
             <h4 className="text-black font-bold mb-6 font-syne text-lg tracking-wide">Legal</h4>
-            <ul className="space-y-4 font-nunito text-gray-600 text-base">
+            <ul className="space-y-3 font-nunito text-gray-600 text-sm">
               <li><a href="#" className="hover:text-black transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-black transition-colors">Refund Policy</a></li>
               <li><a href="#" className="hover:text-black transition-colors">Terms & Conditions</a></li>
