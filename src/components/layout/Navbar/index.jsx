@@ -146,9 +146,20 @@ export default function Navbar() {
             <div className="px-6 py-8 flex flex-col gap-6">
               <Link to="/" className="text-white font-syne text-xl font-bold border-b border-white/10 pb-4">Home</Link>
               <Link to="/pricing" className="text-white font-syne text-xl font-bold border-b border-white/10 pb-4">Pricing</Link>
-              <a href="#" className="text-white font-syne text-xl font-bold border-b border-white/10 pb-4">Products</a>
-              <a href="#" className="text-white font-syne text-xl font-bold border-b border-white/10 pb-4">Industries</a>
-              <a href="#" className="text-white font-syne text-xl font-bold border-b border-white/10 pb-4">Resources</a>
+              
+              {navLinks.map((link, idx) => (
+                <div key={idx} className="border-b border-white/10 pb-4">
+                  <div className="text-white font-syne text-xl font-bold mb-3">{link.name}</div>
+                  <div className="flex flex-col gap-3 pl-4">
+                    {link.dropdown.map((item, i) => (
+                      <Link to={item.link || "#"} key={i} className="text-[var(--text-secondary)] font-nunito text-base flex items-center gap-2">
+                        <span className="w-5 h-5 flex items-center justify-center text-[var(--accent-green)] scale-90">{item.icon}</span>
+                        {item.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
               
               <div className="mt-4 flex flex-col gap-4">
                 <a href="https://wadesk.authai.space/login" target="_blank" rel="noopener noreferrer" className="text-center text-white font-bold py-3 rounded-full border border-white/20 hover:bg-white/5">Login</a>
