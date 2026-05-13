@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Zap, Database, MessageSquare, Bot, Clock, Building2, Stethoscope, Dumbbell, GraduationCap, CircleDollarSign, Gem } from 'lucide-react';
 
 import n8nWorkflowImg from './Images/finance_tracker_execution.png';
+import aiFinVideo from './videos/ai_fin_new.mp4';
 
 export default function N8nAutomationFeature() {
   useEffect(() => {
@@ -103,9 +104,12 @@ export default function N8nAutomationFeature() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative h-[500px] rounded-3xl overflow-hidden border border-white/10 shadow-2xl"
           >
-            <img 
-              src="/assets/images/features/ai_chatbot.png" 
-              alt="AI Chatbot Interface on Mobile" 
+            <video 
+              src={aiFinVideo} 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
