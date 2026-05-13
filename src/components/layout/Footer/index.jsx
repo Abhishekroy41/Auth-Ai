@@ -89,8 +89,6 @@ export default function Footer() {
             <ul className="space-y-3 font-nunito text-gray-600 text-sm">
               <li><a href="#" className="hover:text-black transition-colors">WhatsApp Button</a></li>
               <li><a href="#" className="hover:text-black transition-colors">Generate WhatsApp Link</a></li>
-              <li><a href="#" className="hover:text-black transition-colors">Download Android app</a></li>
-              <li><a href="#" className="hover:text-black transition-colors">Download iOS app</a></li>
             </ul>
           </div>
 
