@@ -3,31 +3,37 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-white py-12 lg:py-16 relative z-10 border-t border-gray-200">
+    <footer className="bg-white py-8 lg:py-10 relative z-10 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-10">
           
           {/* Left Column (Logo / Copyright / Badges) */}
-          <div className="col-span-1 md:col-span-3 lg:col-span-2 flex flex-col gap-6">
+          <div className="col-span-1 md:col-span-3 lg:col-span-2 flex flex-col gap-4">
             <Link to="/" className="inline-block mb-2">
               <span className="font-syne text-[36px] font-extrabold tracking-tight text-black hover:text-gray-800 transition-colors" style={{ letterSpacing: '-0.05em' }}>
                 {'{Auth Ai}'}
               </span>
             </Link>
             <div className="flex items-center">
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Startup_India_Logo.png" 
-                alt="Startup India Official Logo" 
-                className="h-10 object-contain"
-              />
+              <div className="flex items-center gap-2">
+                <svg className="w-8 h-8 text-[#f37021]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                  <circle cx="12" cy="12" r="4" fill="currentColor"/>
+                </svg>
+                <span className="font-sans font-extrabold text-[22px] tracking-tight">
+                  <span className="text-[#f37021]">#</span>
+                  <span className="text-gray-900">startup</span>
+                  <span className="text-gray-800">india</span>
+                </span>
+              </div>
             </div>
             
             <p className="text-gray-600 font-nunito text-base flex items-center gap-2">
               Made with <span className="text-pink-500 text-xl">❤️</span> in India
             </p>
                      {/* Meta Business Partner Logo */}
-            <div className="mt-4 mb-6">
+            <div className="mt-2 mb-2">
               <img 
                 src="https://img.engagelab.net/en/article/meta-business-partner-badge.png" 
                 alt="Meta Business Partner" 
