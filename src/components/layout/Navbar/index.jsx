@@ -7,6 +7,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -149,15 +150,30 @@ export default function Navbar() {
               
               {navLinks.map((link, idx) => (
                 <div key={idx} className="border-b border-white/10 pb-4">
-                  <div className="text-white font-syne text-xl font-bold mb-3">{link.name}</div>
-                  <div className="flex flex-col gap-3 pl-4">
-                    {link.dropdown.map((item, i) => (
-                      <Link to={item.link || "#"} key={i} className="text-[var(--text-secondary)] font-nunito text-base flex items-center gap-2">
-                        <span className="w-5 h-5 flex items-center justify-center text-[var(--accent-green)] scale-90">{item.icon}</span>
-                        {item.title}
-                      </Link>
-                    ))}
-                  </div>
+                  <button 
+                    className="w-full flex items-center justify-between text-white font-syne text-xl font-bold mb-3"
+                    onClick={() => setActiveMobileDropdown(activeMobileDropdown === idx ? null : idx)}
+                  >
+                    {link.name}
+                    <ChevronDown size={20} className={`transition-transform duration-300 ${activeMobileDropdown === idx ? 'rotate-180 text-[var(--accent-green)]' : ''}`} />
+                  </button>
+                  <AnimatePresence>
+                    {activeMobileDropdown === idx && (
+                      <motion.div 
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="flex flex-col gap-3 pl-4 overflow-hidden"
+                      >
+                        {link.dropdown.map((item, i) => (
+                          <Link to={item.link || "#"} key={i} className="text-[var(--text-secondary)] font-nunito text-base flex items-center gap-2 py-1">
+                            <span className="w-5 h-5 flex items-center justify-center text-[var(--accent-green)] scale-90">{item.icon}</span>
+                            {item.title}
+                          </Link>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               ))}
               
