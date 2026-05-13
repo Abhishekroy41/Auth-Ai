@@ -11,9 +11,22 @@ export default function Pricing() {
     <main className="pt-24 pb-12">
       <div className="text-center py-16 px-4 relative z-10">
         <h1 className="text-5xl lg:text-6xl font-syne font-bold text-white mb-6">Simple, Transparent Pricing</h1>
-        <p className="text-xl text-[var(--text-secondary)] font-nunito max-w-2xl mx-auto">
+        <p className="text-xl text-[var(--text-secondary)] font-nunito max-w-2xl mx-auto mb-10">
           Choose the plan that fits your scale. No hidden fees. Zero Meta markup. Upgrade or downgrade anytime.
         </p>
+
+        <div className="mt-8 max-w-3xl mx-auto bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-10 flex flex-col items-center shadow-2xl backdrop-blur-md">
+          <h2 className="text-3xl lg:text-4xl font-syne font-bold text-white mb-3">Ready to get Started?</h2>
+          <p className="text-[var(--text-secondary)] font-nunito mb-8 text-lg">Create your account for free to try our product.</p>
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <a href="#" className="bg-[var(--accent-green)] text-black font-bold px-8 py-3.5 rounded-full hover:shadow-[var(--glow-green)] hover:-translate-y-0.5 transition-all text-center">
+              Book a Demo
+            </a>
+            <a href="#" className="bg-white/10 text-white font-bold px-8 py-3.5 rounded-full hover:bg-white/20 transition-all border border-white/10 hover:-translate-y-0.5 text-center">
+              Talk to Sales
+            </a>
+          </div>
+        </div>
       </div>
       
       <div className="relative z-10">
