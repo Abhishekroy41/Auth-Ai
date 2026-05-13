@@ -37,7 +37,7 @@ export default function Footer() {
               <img 
                 src="https://img.engagelab.net/en/article/meta-business-partner-badge.png" 
                 alt="Meta Business Partner" 
-                className="h-[60px] object-contain"
+                className="h-[75px] object-contain"
               />
             </div>
             
