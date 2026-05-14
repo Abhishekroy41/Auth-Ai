@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { motion, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
-import Home from './pages/Home';
-import Pricing from './pages/Pricing';
-import CRMFeature from './pages/Features/CRM';
-import N8nAutomationFeature from './pages/Features/N8nAutomation';
-import LandingPagesFeature from './pages/Features/LandingPages';
-import SEOFeature from './pages/Features/SEO';
-import AIWorkflowsFeature from './pages/Features/AIWorkflows';
-import AdsFeature from './pages/Features/Ads';
 import VantaBackground from './components/ui/VantaBackground';
 import Loader from './components/ui/Loader';
+
+const Home = lazy(() => import('./pages/Home'));
+const Pricing = lazy(() => import('./pages/Pricing'));
+const CRMFeature = lazy(() => import('./pages/Features/CRM'));
+const N8nAutomationFeature = lazy(() => import('./pages/Features/N8nAutomation'));
+const LandingPagesFeature = lazy(() => import('./pages/Features/LandingPages'));
+const SEOFeature = lazy(() => import('./pages/Features/SEO'));
+const AIWorkflowsFeature = lazy(() => import('./pages/Features/AIWorkflows'));
+const AdsFeature = lazy(() => import('./pages/Features/Ads'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -87,17 +88,19 @@ function App() {
           <Navbar />
           
           <div className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/pricing" element={<Pricing />} />
-              <Route path="/features/crm" element={<CRMFeature />} />
-              <Route path="/features/n8n" element={<N8nAutomationFeature />} />
-              <Route path="/features/websites" element={<LandingPagesFeature />} />
-              <Route path="/features/seo" element={<SEOFeature />} />
-              <Route path="/features/ai" element={<AIWorkflowsFeature />} />
-              <Route path="/features/ads" element={<AdsFeature />} />
-              <Route path="*" element={<Home />} />
-            </Routes>
+            <Suspense fallback={<Loader />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/pricing" element={<Pricing />} />
+                <Route path="/features/crm" element={<CRMFeature />} />
+                <Route path="/features/n8n" element={<N8nAutomationFeature />} />
+                <Route path="/features/websites" element={<LandingPagesFeature />} />
+                <Route path="/features/seo" element={<SEOFeature />} />
+                <Route path="/features/ai" element={<AIWorkflowsFeature />} />
+                <Route path="/features/ads" element={<AdsFeature />} />
+                <Route path="*" element={<Home />} />
+              </Routes>
+            </Suspense>
           </div>
 
           <Footer />
