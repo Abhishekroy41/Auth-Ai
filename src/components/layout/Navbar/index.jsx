@@ -64,7 +64,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 relative z-10 group">
             <span className="font-syne text-[32px] font-extrabold tracking-tight text-white group-hover:text-gray-200 transition-colors" style={{ letterSpacing: '-0.05em' }}>
-              {'{Auth Ai}'}
+              {'{ Auth Ai }'}
             </span>
           </Link>
 

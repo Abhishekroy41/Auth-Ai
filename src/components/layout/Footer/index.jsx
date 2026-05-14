@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="col-span-1 md:col-span-3 lg:col-span-2 flex flex-col gap-4">
             <Link to="/" className="inline-block mb-2">
               <span className="font-syne text-[36px] font-extrabold tracking-tight text-black hover:text-gray-800 transition-colors" style={{ letterSpacing: '-0.05em' }}>
-                {'{Auth Ai}'}
+                {'{ Auth Ai }'}
               </span>
             </Link>
             <div className="flex items-center">

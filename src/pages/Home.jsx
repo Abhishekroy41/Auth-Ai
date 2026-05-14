@@ -8,12 +8,14 @@ import Roadmap from '../components/sections/Roadmap';
 import AutomationFlow from '../components/sections/AutomationFlow';
 import Testimonials from '../components/sections/Testimonials';
 import Contact from '../components/sections/Contact';
+import LiveProjects from '../components/sections/LiveProjects';
 
 export default function Home() {
   return (
     <main>
       <Hero />
       <AutomationFlow />
+      <LiveProjects />
       <Products />
       <WhoWeServe />
       <WhyAuthAI />

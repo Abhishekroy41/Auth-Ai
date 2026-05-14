@@ -16,7 +16,7 @@ export default function Loader() {
           className="relative z-10"
         >
           <span className="font-syne text-[56px] font-extrabold tracking-tight text-white" style={{ letterSpacing: '-0.05em' }}>
-            {'{Auth Ai}'}
+            {'{ Auth Ai }'}
           </span>
         </motion.div>
 
