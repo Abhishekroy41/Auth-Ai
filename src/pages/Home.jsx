@@ -1,7 +1,8 @@
 import React from 'react';
 import Hero from '../components/sections/Hero';
+import Integrations from '../components/sections/Integrations';
 import Problem from '../components/sections/Problem';
-import Products from '../components/sections/Products';
+import PricingCRM from '../components/sections/PricingCRM';
 import WhoWeServe from '../components/sections/WhoWeServe';
 import WhyAuthAI from '../components/sections/WhyAuthAI';
 import Roadmap from '../components/sections/Roadmap';
@@ -14,9 +15,10 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Integrations />
       <AutomationFlow />
       <LiveProjects />
-      <Products />
+      <PricingCRM />
       <WhoWeServe />
       <WhyAuthAI />
       <Roadmap />

@@ -1,4 +1,5 @@
 import React from 'react';
+import Products from '../components/sections/Products';
 import PricingBot from '../components/sections/PricingBot';
 import PricingInsta from '../components/sections/PricingInsta';
 import PricingCRM from '../components/sections/PricingCRM';
@@ -30,6 +31,7 @@ export default function Pricing() {
       </div>
       
       <div className="relative z-10">
+        <Products />
         <PricingCRM />
         <PricingBot />
         <PricingInsta />

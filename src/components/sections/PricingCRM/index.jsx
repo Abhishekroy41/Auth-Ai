@@ -1,72 +1,151 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Check, ChevronDown, ChevronUp } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Check } from 'lucide-react';
 
 export default function PricingCRM() {
-  const [isAnnual, setIsAnnual] = useState(false);
-  const [showAddons, setShowAddons] = useState(false);
-
   const plans = [
     {
-      name: "STARTER",
-      priceMonthly: 999,
-      priceAnnual: 9990,
+      name: "Basic",
+      description: "Start automating customer replies with AI. Perfect for solo businesses.",
+      price: "₹2,499",
+      setup: "₹15,000 one-time",
+      commitment: "Min. 3-month commitment",
       features: [
-        "1 WhatsApp number",
-        "3 agents",
-        "2,000 contacts",
-        "Basic AI chatbot",
-        "Basic broadcasts",
-        "3 automation flows",
-        "Email support 48hr",
-        "14-day free trial"
+        "WhatsApp API",
+        "AI Bot",
+        "24/7 AI chatbot",
+        "30 custom Q&As trained",
+        "Official Meta WhatsApp API",
+        "Lead capture to Zoho/Sheets",
+        "Full conversation flow",
+        "AI lead qualification",
+        "Follow-up sequences"
       ],
+      cta: "Enquire on WhatsApp",
       popular: false
     },
     {
-      name: "GROWTH",
-      priceMonthly: 1999,
-      priceAnnual: 19990,
+      name: "Starter AI",
+      description: "Full AI conversations + CRM sync. The sweet spot for growing SMBs.",
+      price: "₹5,999",
+      setup: "₹35,000 one-time",
+      commitment: "Min. 6-month commitment",
       features: [
-        "2 WhatsApp numbers",
-        "10 agents",
-        "10,000 contacts",
-        "Advanced AI flow builder",
-        "Drip campaigns",
-        "10 automation flows",
-        "Full CRM pipeline",
-        "WhatsApp support 24hr",
-        "14-day free trial"
+        "WhatsApp, Full AI Flow, CRM",
+        "Everything in Basic",
+        "Unlimited custom Q&As",
+        "Full conversation flow",
+        "Full CRM sync",
+        "Human handover feature",
+        "3-step follow-up sequence",
+        "Bi-weekly reports"
       ],
-      popular: true
+      cta: "Get Started ↗",
+      popular: true,
+      badge: "⭐ Best Value"
     },
     {
-      name: "SCALE",
-      priceMonthly: 3499,
-      priceAnnual: 34990,
+      name: "Growth",
+      description: "Campaigns, appointments & deep lead management for fast-growing teams.",
+      price: "₹12,999",
+      setup: "₹75,000 one-time",
+      commitment: "Min. 6-month commitment",
       features: [
-        "5 WhatsApp numbers",
-        "Unlimited agents",
-        "Unlimited contacts",
-        "Custom-trained AI",
-        "Unlimited broadcasts + scheduling",
-        "Unlimited workflows",
-        "Advanced analytics + export",
-        "API access",
-        "Priority support 4hr",
-        "14-day free trial"
+        "Campaigns, Booking, Lead Tags",
+        "Everything in Starter AI",
+        "Broadcast campaigns",
+        "Appointment booking via WhatsApp",
+        "Hot/warm/cold lead tagging",
+        "Sales pipeline automation",
+        "7-step follow-up sequence",
+        "Monthly report + call"
       ],
+      cta: "Enquire on WhatsApp",
+      popular: false
+    },
+    {
+      name: "Scale",
+      description: "Full white-glove AI stack with dedicated account manager & SLA.",
+      price: "₹25,000",
+      setup: "₹1,20,000+ one-time",
+      commitment: "Min. 12-month commitment",
+      features: [
+        "Custom AI, Private n8n, AM",
+        "Everything in Growth",
+        "Custom AI (brand voice)",
+        "Dedicated WABA number",
+        "Multi-department automation",
+        "Private n8n server",
+        "Real-time analytics dashboard",
+        "Dedicated account manager"
+      ],
+      cta: "Enquire on WhatsApp",
       popular: false
     }
   ];
 
   const addons = [
-    { name: "Extra WhatsApp Number", price: "₹799/mo" },
-    { name: "Extra 10 Agents", price: "₹799/mo" },
-    { name: "AI Calling Agent (Voice Bot)", price: "₹2,499/mo" },
-    { name: "Custom CRM Integration", price: "₹7,999 one-time" },
-    { name: "Dedicated Server", price: "₹1,999/mo" },
-    { name: "White-Label License", price: "₹3,999/mo (Scale only)" }
+    {
+      name: "AI Calling Agent",
+      subtitle: "Outbound voice automation",
+      oldPrice: "₹6,000",
+      price: "₹4,999",
+      badge: "New",
+      features: [
+        "AI voice calls for lead follow-up",
+        "Up to 500 calls/month",
+        "Call transcription & CRM logging",
+        "Hindi + English support"
+      ]
+    },
+    {
+      name: "Instagram DM Bot",
+      subtitle: "Social media automation",
+      oldPrice: "₹3,500",
+      price: "₹2,499",
+      features: [
+        "AI auto-replies to DMs",
+        "Story mention responses",
+        "Lead capture from Instagram",
+        "Seamless WhatsApp handoff"
+      ]
+    },
+    {
+      name: "Review Automation",
+      subtitle: "Google & reputation management",
+      oldPrice: "₹2,500",
+      price: "₹1,999",
+      features: [
+        "Automated review request via WhatsApp",
+        "AI response to Google reviews",
+        "Reputation score dashboard",
+        "Negative review alerts"
+      ]
+    },
+    {
+      name: "Catalogue & Payment Bot",
+      subtitle: "WhatsApp commerce automation",
+      oldPrice: "₹4,000",
+      price: "₹2,999",
+      features: [
+        "WhatsApp product catalogue",
+        "In-chat payment links (Razorpay/UPI)",
+        "Order status automation",
+        "Abandoned cart recovery"
+      ]
+    },
+    {
+      name: "Multi-Language Bot",
+      subtitle: "Regional language support",
+      oldPrice: "₹2,000",
+      price: "₹1,499",
+      features: [
+        "Hindi, Bengali, Odia & more",
+        "Auto language detection",
+        "Hinglish conversation support",
+        "Regional compliance & tone"
+      ]
+    }
   ];
 
   return (
@@ -74,25 +153,13 @@ export default function PricingCRM() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-syne text-white mb-8">WhatsApp CRM — Monthly Plans</h2>
-          
-          <div className="inline-flex items-center bg-black/40 p-1 rounded-full border border-white/10">
-            <button 
-              onClick={() => setIsAnnual(false)}
-              className={`px-6 py-2.5 rounded-full font-nunito font-semibold text-sm transition-all ${!isAnnual ? 'bg-[var(--accent-blue)] text-black shadow-[var(--glow-blue)]' : 'text-[var(--text-muted)] hover:text-white'}`}
-            >
-              Monthly
-            </button>
-            <button 
-              onClick={() => setIsAnnual(true)}
-              className={`px-6 py-2.5 rounded-full font-nunito font-semibold text-sm transition-all flex items-center gap-2 ${isAnnual ? 'bg-[var(--accent-blue)] text-black shadow-[var(--glow-blue)]' : 'text-[var(--text-muted)] hover:text-white'}`}
-            >
-              Annual <span className={isAnnual ? 'bg-black/20 px-2 py-0.5 rounded text-xs' : 'bg-[var(--accent-green)]/20 text-[var(--accent-green)] px-2 py-0.5 rounded text-xs'}>Save 2 Months</span>
-            </button>
-          </div>
+          <h2 className="text-4xl md:text-5xl font-bold font-syne text-white mb-4">Pricing Plans</h2>
+          <p className="text-xl text-[var(--text-secondary)] font-nunito max-w-2xl mx-auto">
+            Choose the perfect plan for your business scale.
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {plans.map((plan, idx) => (
             <motion.div 
               key={idx}
@@ -100,72 +167,88 @@ export default function PricingCRM() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className={`glass-card p-8 rounded-3xl relative flex flex-col ${plan.popular ? 'border-[var(--accent-blue)] shadow-[var(--glow-blue)] lg:-translate-y-4' : 'border-white/10'}`}
+              className={`glass-card p-6 rounded-3xl relative flex flex-col ${plan.popular ? 'border-[var(--accent-blue)] shadow-[var(--glow-blue)] lg:-translate-y-4' : 'border-white/10'}`}
             >
               {plan.popular && (
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[var(--accent-blue)] text-black font-bold font-mono text-xs px-4 py-1 rounded-full uppercase tracking-wider">
-                  Most Popular
+                  {plan.badge || "Most Popular"}
                 </div>
               )}
               
-              <h3 className="text-xl font-syne font-bold text-white mb-2">{plan.name}</h3>
-              <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-4xl font-mono font-bold text-white">₹{isAnnual ? plan.priceAnnual.toLocaleString('en-IN') : plan.priceMonthly.toLocaleString('en-IN')}</span>
-                <span className="text-[var(--text-secondary)] font-mono text-sm">{isAnnual ? '/year' : '/month'}</span>
+              <h3 className="text-2xl font-syne font-bold text-white mb-2">{plan.name}</h3>
+              <p className="text-sm text-[var(--text-secondary)] font-nunito mb-4 h-12">{plan.description}</p>
+              
+              <div className="flex items-baseline gap-1 mb-2">
+                <span className="text-3xl font-mono font-bold text-white">{plan.price}</span>
+                <span className="text-[var(--text-secondary)] font-mono text-xs">/ mo</span>
               </div>
+              <div className="text-xs text-[var(--text-muted)] font-nunito mb-1">Setup: {plan.setup}</div>
+              <div className="text-xs text-[var(--accent-green)] font-nunito mb-6">{plan.commitment}</div>
 
-              <div className="space-y-4 mb-8 flex-grow">
+              <div className="space-y-3 mb-8 flex-grow">
                 {plan.features.map((feat, fIdx) => (
-                  <div key={fIdx} className="flex gap-3 items-start">
-                    <Check size={18} className="text-[var(--accent-blue)] flex-shrink-0 mt-0.5" />
-                    <span className="text-[var(--text-primary)] font-nunito text-sm">{feat}</span>
+                  <div key={fIdx} className="flex gap-2 items-start">
+                    <Check size={16} className="text-[var(--accent-blue)] flex-shrink-0 mt-0.5" />
+                    <span className="text-[var(--text-primary)] font-nunito text-xs">{feat}</span>
                   </div>
                 ))}
               </div>
               
-              <button className={`w-full py-3 rounded-xl font-bold font-nunito transition-all ${plan.popular ? 'bg-[var(--accent-blue)] text-black hover:shadow-[var(--glow-blue)]' : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'}`}>
-                Start Free Trial
+              <button className={`w-full py-3 rounded-xl font-bold font-nunito transition-all text-sm ${plan.popular ? 'bg-[var(--accent-blue)] text-black hover:shadow-[var(--glow-blue)]' : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'}`}>
+                {plan.cta}
               </button>
             </motion.div>
           ))}
         </div>
 
-        <div className="text-center mb-12">
-          <p className="inline-block bg-[var(--accent-green)]/10 text-[var(--accent-green)] px-6 py-3 rounded-full font-bold font-nunito border border-[var(--accent-green)]/20">
-            ZERO Meta API markup on all plans. Competitors (AiSensy, WATI) charge 20–26% extra per message.
-          </p>
-        </div>
-
-        {/* Addons Collapsible */}
-        <div className="max-w-3xl mx-auto">
-          <button 
-            onClick={() => setShowAddons(!showAddons)}
-            className="w-full flex items-center justify-between glass-card p-4 rounded-xl border-white/10 hover:border-white/20 transition-colors"
-          >
-            <span className="font-syne font-bold text-white">View CRM Add-Ons</span>
-            {showAddons ? <ChevronUp className="text-white" /> : <ChevronDown className="text-white" />}
-          </button>
+        {/* Addons Collapsible -> Changed to Power-Ups Section */}
+        <div className="mt-24">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-syne text-white mb-4">Power-Ups / Add-On Services</h2>
+            <p className="text-lg text-[var(--text-secondary)] font-nunito max-w-2xl mx-auto">
+              Plug into any plan · Mix & match what your business needs
+            </p>
+          </div>
           
-          <AnimatePresence>
-            {showAddons && (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {addons.map((addon, idx) => (
               <motion.div 
-                key="addons-content"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                className="overflow-hidden"
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="glass-card p-6 rounded-3xl border border-white/10 hover:border-white/20 transition-colors relative flex flex-col"
               >
-                <div className="grid sm:grid-cols-2 gap-4 pt-4">
-                  {addons.map((addon, idx) => (
-                    <div key={idx} className="bg-black/20 p-4 rounded-lg flex justify-between items-center border border-white/5">
-                      <span className="font-nunito text-sm text-[var(--text-primary)]">{addon.name}</span>
-                      <span className="font-mono text-sm font-bold text-[var(--text-secondary)]">{addon.price}</span>
+                {addon.badge && (
+                  <span className="absolute top-4 right-4 bg-[var(--accent-green)]/20 text-[var(--accent-green)] text-xs font-bold px-3 py-1 rounded-full uppercase">
+                    {addon.badge}
+                  </span>
+                )}
+                <h3 className="text-xl font-syne font-bold text-white mb-1">{addon.name}</h3>
+                <p className="text-sm text-[var(--text-secondary)] font-nunito mb-4 h-10">{addon.subtitle}</p>
+                
+                <div className="flex items-end gap-2 mb-6">
+                  <span className="text-2xl font-mono font-bold text-white">{addon.price}</span>
+                  <span className="text-sm text-[var(--text-muted)] line-through font-mono mb-1">{addon.oldPrice}</span>
+                  <span className="text-[var(--text-secondary)] font-mono text-xs mb-1">/ mo</span>
+                </div>
+                
+                <div className="space-y-3 mb-8 flex-grow">
+                  {addon.features.map((feat, fIdx) => (
+                    <div key={fIdx} className="flex gap-2 items-start">
+                      <Check size={16} className="text-[var(--accent-green)] flex-shrink-0 mt-0.5" />
+                      <span className="text-[var(--text-primary)] font-nunito text-xs">{feat}</span>
                     </div>
                   ))}
                 </div>
+                
+                <button className="w-full py-2.5 rounded-xl border border-white/20 text-white font-nunito font-semibold hover:bg-white/10 transition-colors mt-auto text-sm">
+                  Add to Plan
+                </button>
               </motion.div>
-            )}
-          </AnimatePresence>
+            ))}
+          </div>
         </div>
 
       </div>

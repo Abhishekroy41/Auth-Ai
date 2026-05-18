@@ -24,7 +24,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-transparent">
+    <section className="relative pt-32 pb-12 lg:pt-48 lg:pb-16 overflow-hidden bg-transparent">
       {/* Dynamic dark radial gradient overlaid on Vanta */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[var(--bg-primary)]/50 to-[var(--bg-primary)] pointer-events-none z-0" />
       
@@ -181,7 +181,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-24 pt-10 border-t border-white/5"
+          className="mt-12 pt-8 border-t border-white/5"
         >
           <p className="text-center text-[var(--text-secondary)] font-mono text-sm tracking-wider uppercase mb-6">
             Trusted by gyms · clinics · coaching institutes · salons · real estate agents · local retailers across India

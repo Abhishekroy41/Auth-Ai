@@ -12,9 +12,9 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Since this is a static frontend, we'll just open WhatsApp with the details
-    const text = `Hi Auth AI, I want to book a free demo.\n\nName: ${formData.name}\nBusiness: ${formData.businessName}\nCity: ${formData.city}\nNumber: ${formData.whatsappNumber}\nInterested In: ${formData.product}`;
-    const url = `https://wa.me/919999999999?text=${encodeURIComponent(text)}`;
+    // Professional approach - simple greeting message
+    const text = `Hi, I'd like to book a free demo and learn more about Auth AI.`;
+    const url = `https://wa.me/918877221407?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
 
@@ -133,7 +133,7 @@ export default function Contact() {
 
           <div className="mt-12 text-center space-y-4">
             <a 
-              href="https://wa.me/919999999999" 
+              href="https://wa.me/918877221407" 
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-white bg-white/5 hover:bg-white/10 border border-white/10 px-6 py-3 rounded-full transition-colors font-nunito"

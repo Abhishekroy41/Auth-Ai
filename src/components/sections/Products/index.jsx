@@ -57,7 +57,7 @@ export default function Products() {
         "Analytics dashboard with response time and conversion data",
         "ZERO markup on Meta API — competitors charge 20–26% extra"
       ],
-      priceBadge: "From ₹499/month",
+      priceBadge: "From ₹2,499/month",
       cta: "See CRM Pricing →",
       link: "#pricing-crm"
     }
