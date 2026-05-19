@@ -117,7 +117,9 @@ export default function Navbar() {
             <div className="flex items-center gap-4">
               <a href="https://wadesk.authai.space/login" target="_blank" rel="noopener noreferrer" className="text-white font-bold font-nunito hover:text-[var(--accent-green)] transition-colors">Login</a>
               <a 
-                href="#" 
+                href="https://wa.me/918877221407?text=Hi%20Auth%20AI%2C%20I%20want%20to%20Book%20a%20Demo.%20Can%20you%20help%20me%20get%20started%3F"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-white text-black font-bold font-nunito px-6 py-2.5 rounded-full hover:bg-[var(--accent-green)] hover:shadow-[var(--glow-green)] transition-all duration-300 hover:-translate-y-0.5"
               >
                 Book a Demo
@@ -180,7 +182,9 @@ export default function Navbar() {
               <div className="mt-4 flex flex-col gap-4">
                 <a href="https://wadesk.authai.space/login" target="_blank" rel="noopener noreferrer" className="text-center text-white font-bold py-3 rounded-full border border-white/20 hover:bg-white/5">Login</a>
                 <a 
-                  href="#" 
+                  href="https://wa.me/918877221407?text=Hi%20Auth%20AI%2C%20I%20want%20to%20Book%20a%20Demo.%20Can%20you%20help%20me%20get%20started%3F"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-center bg-[var(--accent-green)] text-black font-bold py-3 rounded-full shadow-[var(--glow-green)]"
                 >
                   Book a Demo

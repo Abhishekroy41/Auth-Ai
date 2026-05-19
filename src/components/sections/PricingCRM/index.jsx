@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 
+const WHATSAPP_LINK = "https://wa.me/918877221407?text=Hi%20Auth%20AI%2C%20I%20am%20interested%20in%20your%20pricing%20plans.%20Can%20you%20help%20me%20get%20started%3F";
+
 export default function PricingCRM() {
   const plans = [
     {
@@ -194,9 +196,14 @@ export default function PricingCRM() {
                 ))}
               </div>
               
-              <button className={`w-full py-3 rounded-xl font-bold font-nunito transition-all text-sm ${plan.popular ? 'bg-[var(--accent-blue)] text-black hover:shadow-[var(--glow-blue)]' : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'}`}>
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full py-3 rounded-xl font-bold font-nunito transition-all text-sm text-center block ${plan.popular ? 'bg-[var(--accent-blue)] text-black hover:shadow-[var(--glow-blue)]' : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'}`}
+              >
                 {plan.cta}
-              </button>
+              </a>
             </motion.div>
           ))}
         </div>
@@ -243,9 +250,14 @@ export default function PricingCRM() {
                   ))}
                 </div>
                 
-                <button className="w-full py-2.5 rounded-xl border border-white/20 text-white font-nunito font-semibold hover:bg-white/10 transition-colors mt-auto text-sm">
+                <a
+                  href={WHATSAPP_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 rounded-xl border border-white/20 text-white font-nunito font-semibold hover:bg-white/10 transition-colors mt-auto text-sm text-center block"
+                >
                   Add to Plan
-                </button>
+                </a>
               </motion.div>
             ))}
           </div>
