@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Building2, Film, Shirt, Sparkles, Flame, MapPin, User, Briefcase, Bot, Database } from 'lucide-react';
-import aiFinVideo from '../../pages/Features/N8nAutomation/videos/ai_fin_new.mp4';
+import aiFinVideo from '../../../pages/Features/N8nAutomation/videos/ai_fin_new.mp4';
 
 export default function LiveProjects() {
   const liveBots = [
