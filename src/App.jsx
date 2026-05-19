@@ -15,6 +15,15 @@ const SEOFeature = lazy(() => import('./pages/Features/SEO'));
 const AIWorkflowsFeature = lazy(() => import('./pages/Features/AIWorkflows'));
 const AdsFeature = lazy(() => import('./pages/Features/Ads'));
 
+// Resources
+const HelpCenter = lazy(() => import('./pages/Resources/HelpCenter'));
+const ContactUs = lazy(() => import('./pages/Resources/ContactUs'));
+
+// Legal
+const Terms = lazy(() => import('./pages/Legal/Terms'));
+const PrivacyPolicy = lazy(() => import('./pages/Legal/PrivacyPolicy'));
+const RefundPolicy = lazy(() => import('./pages/Legal/RefundPolicy'));
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const cursorX = useMotionValue(-500);
@@ -98,6 +107,16 @@ function App() {
                 <Route path="/features/seo" element={<SEOFeature />} />
                 <Route path="/features/ai" element={<AIWorkflowsFeature />} />
                 <Route path="/features/ads" element={<AdsFeature />} />
+                
+                {/* Resources */}
+                <Route path="/help" element={<HelpCenter />} />
+                <Route path="/contact" element={<ContactUs />} />
+
+                {/* Legal */}
+                <Route path="/terms" element={<Terms />} />
+                <Route path="/privacy" element={<PrivacyPolicy />} />
+                <Route path="/refund" element={<RefundPolicy />} />
+
                 <Route path="*" element={<Home />} />
               </Routes>
             </Suspense>

@@ -76,10 +76,13 @@ export default function CRMFeature() {
               </div>
             </div>
 
-            <div className="flex gap-4 pt-6">
+            <div className="flex flex-wrap gap-4 pt-6">
               <Link to="/pricing" className="bg-[var(--accent-blue)] text-black font-bold px-8 py-3.5 rounded-full hover:shadow-[var(--glow-blue)] hover:-translate-y-0.5 transition-all flex items-center gap-2">
                 View CRM Plans <ArrowRight size={18} />
               </Link>
+              <a href="https://wadesk.authai.space/login" target="_blank" rel="noopener noreferrer" className="glass-button bg-white/5 border border-white/10 text-white font-bold px-8 py-3.5 rounded-full hover:bg-white/10 transition-all flex items-center gap-2">
+                Live CRM Dashboard <Layers size={18} />
+              </a>
             </div>
           </motion.div>
 
@@ -191,10 +194,13 @@ export default function CRMFeature() {
               ))}
             </ul>
 
-            <div className="mt-4">
+            <div className="mt-4 flex flex-col sm:flex-row gap-6 sm:items-center">
                <Link to="/pricing" className="text-[var(--accent-blue)] font-bold hover:underline inline-flex items-center gap-1">
                  See full feature list <ArrowRight size={16} />
                </Link>
+               <a href="https://wadesk.authai.space/login" target="_blank" rel="noopener noreferrer" className="text-white font-bold hover:text-[var(--accent-blue)] transition-colors inline-flex items-center gap-1">
+                 Access Live Dashboard <ArrowRight size={16} />
+               </a>
             </div>
           </motion.div>
 
