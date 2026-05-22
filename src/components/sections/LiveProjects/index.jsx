@@ -8,7 +8,7 @@ export default function LiveProjects() {
     {
       name: "Maa Tara Dream City",
       type: "AI Bot Demo",
-      client: "Prakesh Kumar",
+      client: "Mr. Prakesh Kumar",
       location: "Dhanbad",
       industry: "Real Estate",
       icon: <Building2 size={24} className="text-[var(--accent-green)]" />,
@@ -17,7 +17,7 @@ export default function LiveProjects() {
     {
       name: "Vidshot",
       type: "Automation Solutions",
-      client: "Rohit Kumar Singh",
+      client: "Mr. Rohit Kumar Singh",
       location: "Mumbai",
       industry: "Media Agency",
       icon: <Film size={24} className="text-[var(--accent-green)]" />,
@@ -26,7 +26,7 @@ export default function LiveProjects() {
     {
       name: "White House Drycleaning",
       type: "WhatsApp CRM & Bot",
-      client: "Ramjee Rajak",
+      client: "Mr. Ramjee Rajak",
       location: "Dhanbad",
       industry: "Drycleaning",
       icon: <Shirt size={24} className="text-[var(--accent-green)]" />,
@@ -35,7 +35,7 @@ export default function LiveProjects() {
     {
       name: "Spark FX",
       type: "Engagement Bot",
-      client: "Nischal",
+      client: "Mr. Nischal",
       clientLabel: "Founder",
       location: "Jabalpur",
       industry: "Media / Effects",
@@ -45,7 +45,7 @@ export default function LiveProjects() {
     {
       name: "Tanaya Agency Fireworks",
       type: "Order & Support Bot",
-      client: "Arshdeep Singh",
+      client: "Mr. Arshdeep Singh",
       clientLabel: "Founder",
       location: "Jabalpur",
       industry: "Fireworks",
@@ -115,6 +115,7 @@ export default function LiveProjects() {
                   loop 
                   muted 
                   playsInline 
+                  preload="none"
                   className="w-full h-auto max-h-[70vh] object-contain" 
                 />
               </div>

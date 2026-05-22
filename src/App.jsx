@@ -43,7 +43,7 @@ function App() {
     // Simulate initial boot time
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 300);
 
     return () => {
       window.removeEventListener('mousemove', moveCursor);
