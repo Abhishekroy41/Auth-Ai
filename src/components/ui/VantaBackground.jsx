@@ -8,6 +8,10 @@ export default function VantaBackground() {
   const vantaRef = useRef(null);
 
   useEffect(() => {
+    if (window.innerWidth < 768) {
+      return; // Disable on mobile for performance
+    }
+
     if (!vantaEffect && vantaRef.current) {
       try {
         setVantaEffect(NET({

@@ -16,7 +16,7 @@ export default function AutomationFlow() {
     <section className="py-24 relative overflow-hidden border-t border-white/5 bg-transparent">
       
       {/* Background ambient light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[50%] bg-[var(--accent-blue)] opacity-[0.03] blur-[120px] rounded-full pointer-events-none z-0" />
+      <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[50%] bg-[var(--accent-blue)] opacity-[0.03] blur-[120px] rounded-full pointer-events-none z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

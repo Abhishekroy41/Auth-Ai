@@ -93,7 +93,7 @@ export default function CRMFeature() {
             className="relative h-[500px] rounded-3xl glass-card border border-white/10 overflow-hidden flex items-center justify-center bg-gradient-to-br from-white/5 to-transparent shadow-2xl"
           >
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[var(--accent-blue)] opacity-20 blur-[100px] rounded-full"></div>
+            <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[var(--accent-blue)] opacity-20 blur-[100px] rounded-full"></div>
             
             <div className="relative z-10 w-full max-w-md px-8">
               {/* Mock Chatwoot UI Card */}
@@ -130,7 +130,7 @@ export default function CRMFeature() {
 
       {/* Feature Grid */}
       <div className="bg-black/30 border-y border-white/5 py-24 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--accent-blue)] opacity-5 blur-[150px] pointer-events-none rounded-full"></div>
+        <div className="hidden md:block absolute top-0 right-0 w-[600px] h-[600px] bg-[var(--accent-blue)] opacity-5 blur-[150px] pointer-events-none rounded-full"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">

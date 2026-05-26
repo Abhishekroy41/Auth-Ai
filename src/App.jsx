@@ -69,7 +69,7 @@ function App() {
 
         {/* Interactive Mouse Glow */}
         <motion.div 
-          className="fixed top-0 left-0 w-[500px] h-[500px] rounded-full bg-[var(--accent-green)] opacity-[0.05] blur-[120px] pointer-events-none z-0 mix-blend-screen"
+          className="hidden md:block fixed top-0 left-0 w-[500px] h-[500px] rounded-full bg-[var(--accent-green)] opacity-[0.05] blur-[120px] pointer-events-none z-0 mix-blend-screen"
           style={{ x: cursorXSpring, y: cursorYSpring }}
         />
         
@@ -81,7 +81,7 @@ function App() {
             scale: [1, 1.1, 0.9, 1] 
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="fixed top-[-10%] left-[-10%] w-[40%] h-[50%] rounded-full bg-[var(--accent-blue)] opacity-[0.03] blur-[120px] pointer-events-none z-0"
+          className="hidden md:block fixed top-[-10%] left-[-10%] w-[40%] h-[50%] rounded-full bg-[var(--accent-blue)] opacity-[0.03] blur-[120px] pointer-events-none z-0"
         />
         <motion.div 
           animate={{ 
@@ -90,7 +90,7 @@ function App() {
             scale: [1, 0.8, 1.2, 1] 
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[var(--accent-green)] opacity-[0.02] blur-[150px] pointer-events-none z-0"
+          className="hidden md:block fixed bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-[var(--accent-green)] opacity-[0.02] blur-[150px] pointer-events-none z-0"
         />
         
         <div className="relative z-10 flex flex-col min-h-screen">

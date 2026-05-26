@@ -56,7 +56,7 @@ export default function LiveProjects() {
 
   return (
     <div className="bg-black/30 border-y border-white/5 py-24 relative overflow-hidden">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[var(--accent-blue)] opacity-10 blur-[120px] pointer-events-none rounded-full"></div>
+      <div className="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[var(--accent-blue)] opacity-10 blur-[120px] pointer-events-none rounded-full"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
